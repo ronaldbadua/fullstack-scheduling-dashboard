@@ -1,0 +1,29 @@
+{
+  "name": "fullstack-scheduling-dashboard",
+  "version": "1.0.0",
+  "description": "Full-stack scheduling dashboard with tabs, API, Supabase-ready backend, and static frontend",
+  "main": "backend/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "nodemon backend/server.js",
+    "start": "node backend/server.js",
+    "test": "node --test tests/api.test.js",
+    "test:watch": "node --test --watch tests/api.test.js",
+    "smoke": "node tests/smoke.js"
+  },
+  "keywords": ["scheduling", "dashboard", "supabase", "fullstack"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.104.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14",
+    "supertest": "^7.2.2",
+    "vitest": "^4.1.4"
+  }
+}

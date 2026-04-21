@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Full-Stack Scheduling Dashboard</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>Scheduling Dashboard</h1>
+      <p>Full-stack tabs: Shift Scheduling, Associates List, Pooling, Backup Associates.</p>
+    </header>
+
+    <div id="toast" class="toast"></div>
+
+    <nav class="tabs" id="tabs">
+      <button class="tab active" data-tab="shift">Shift Scheduling</button>
+      <button class="tab" data-tab="associates">Associates List</button>
+      <button class="tab" data-tab="pooling">Pooling</button>
+      <button class="tab" data-tab="backup">Backup Associates</button>
+    </nav>
+
+    <section class="panel active" id="panel-shift">
+      <div class="toolbar">
+        <label>Month <input type="month" id="month" /></label>
+        <button id="autofill" type="button">Auto Assign Monthly</button>
+      </div>
+      
+      <div class="cal-head"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+      <div id="calendar"></div>
+    </section>
+
+    <section class="panel" id="panel-associates">
+      <div class="create-row">
+        <input id="new-name" placeholder="Associate name" />
+        <select id="new-shift">
+          <option>FHD</option><option>BHD</option><option>Part Time</option><option>Vacation</option>
+        </select>
+        <button id="add-associate" type="button">Add</button>
+      </div>
+      <div id="associates-list"></div>
+    </section>
+
+    <section class="panel" id="panel-pooling">
+      <p class="hint">Pooling follows same shift and availability rules as scheduling.</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Associate</th><th>Sun-Wed</th><th>Wed-Sat</th><th>Part Time</th><th>Skip</th></tr></thead>
+          <tbody id="pooling-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-backup">
+      <p class="hint">Assign backup coverage for each day. Backup is displayed under main associate in scheduling calendar.</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Date</th><th>Main</th><th>Backup</th></tr></thead>
+          <tbody id="backup-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script src="./app.js"></script>
+</body>
+</html>

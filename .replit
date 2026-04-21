@@ -1,0 +1,12 @@
+﻿run = "npm install && npm start"
+entrypoint = "backend/server.js"
+
+[nix]
+channel = "stable-24_05"
+
+[deployment]
+run = ["sh", "-c", "npm install && npm start"]
+
+[[ports]]
+localPort = 3000
+externalPort = 80
